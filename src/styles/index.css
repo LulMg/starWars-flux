@@ -1,3 +1,43 @@
-/* 
-    General Styles
-*/
+#logo{
+height: 5rem;
+}
+
+.overflow{
+overflow: auto;
+}
+
+li{
+list-style-type: none;
+}
+
+body{
+background-image: url('https://cdn.wallpapersafari.com/83/64/98OGTc.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+}
+
+h1{
+text-shadow: rgb(232, 232, 235);
+}
+
+.boxs{
+-webkit-box-shadow:0px 10px 6px -5px #ee6c6c;
+ box-shadow: 5px #af6767;
+  
+}
+#nav{
+background-color: #111010b0;
+}
+#imgCar1, #imgCar2, imgCar3{
+z-index: -1;
+width: 150px !important;
+}
+
+.darkbox{
+background-color: rgba(0, 0, 0, 0.178) !important;
+}
+#imgpeq{
+width: 26rem;
+height: 15rem;
+}

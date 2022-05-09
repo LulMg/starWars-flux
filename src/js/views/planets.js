@@ -3,17 +3,16 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = props => {
+export const Planet = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	return (
 		<div className=" container jumbotdon text-light">
 			
-			<h1>{store.characters[params.theid]?.name}</h1>
+			<h1>{store.planets[params.theid].name}</h1>
 				<div className="d-flex">
 					<div>
-						//PREGUNTAR
-						<img src={`https://starwars-visualguide.com/assets/img/characters/${Number(params.theid)+1}.jpg`}/>
+						<img src={`https://starwars-visualguide.com/assets/img/planets/${Number(params.theid)+1}.jpg`}/>
 					</div>
 					<div className="p-3">
 						<p>Sed ut perspiciatis unde omnis iste natus error sit 
@@ -40,26 +39,26 @@ export const Single = props => {
 			<div>
 				<table className="table table-striped text-center text-light">
 					<tr className="ms-4">
-						<th>Height</th>
-						<th>Mass</th>
-						<th>Hair color</th>
-						<th>Eye color</th>
-						<th>Birth year</th>
-						<th>Gender</th>
+						<th>Name</th>
+						<th>Diameter</th>
+						<th>Climate</th>
+						<th>Surface water</th>
+						<th>Population</th>
+						<th>Orbital period</th>
 					</tr>
 						<tr>
-						<td>{store.characters[params.theid].height}</td>
-						<td>{store.characters[params.theid].mass}</td>
-						<td>{store.characters[params.theid].hair_color}</td>
-						<td>{store.characters[params.theid].eye_color}</td>
-						<td>{store.characters[params.theid].birth_year}</td>
-						<td>{store.characters[params.theid].gender}</td>
+						<td>{store.planets[params.theid].name}</td>
+						<td>{store.planets[params.theid].diameter}</td>
+						<td>{store.planets[params.theid].climate}</td>
+						<td>{store.planets[params.theid].surface_water}</td>
+						<td>{store.planets[params.theid].population}</td>
+						<td>{store.planets[params.theid].orbital_period}</td>
 					</tr>
 				</table>
 			</div>
 			<div className="text-center">
 				<Link to="/demo">
-				<span className="btn btn-gradient text-light border" href="#" role="button">
+				<span className="btn bg-gradient text-light border" href="#" role="button">
 					Back
 				</span>
 			</Link>
@@ -67,8 +66,4 @@ export const Single = props => {
 			
 		</div>
 	);
-};
-
-Single.propTypes = {
-	match: PropTypes.object
 };

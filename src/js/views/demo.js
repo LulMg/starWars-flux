@@ -1,43 +1,65 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-
+import React, {useEffect, useContext} from "react";
+import "../../styles/home.css";
 import { Context } from "../store/appContext";
-
-import "../../styles/demo.css";
+import {Box} from "../component/box";
 
 export const Demo = () => {
-	const { store, actions } = useContext(Context);
 
-	return (
-		<div className="container">
-			<ul className="list-group">
-				{store.demo.map((item, index) => {
-					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
-					);
-				})}
-			</ul>
-			<br />
-			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
-			</Link>
+	const {store, actions}= useContext(Context)
+return	<div className="container">
+		<div>
+			<div className="border-bottom m-1 mb-4 text-center boxs">
+				<h1 className="text-light p-4 display-4"> CHARACTERS</h1>
+			</div>
+			
+				<div className="overflow d-flex">
+				{
+				store.characters?.map((obj, i)=>{
+					return <div key={i}>
+					<Box 
+						Key= {i}
+						name= {obj.name}
+						info= {<ul>
+								<li><strong>Gender:</strong> {obj.gender}</li>
+								<li><strong>Birth year:</strong> {obj.birth_year}</li>
+								<li><strong>Mass:</strong> {obj.mass}</li>
+							</ul>}
+						source= {'https://starwars-visualguide.com/assets/img/characters/'+(i+1)+'.jpg'}
+						i={i}
+						layout= {'/single/'}
+					/>	
+				</div>
+				})
+			}
+			</div>
+			
 		</div>
-	);
+
+		<div className="my-4">
+			<div className="border-bottom mb-4 m-1 mb-4 text-center boxs">
+				<h1 className="text-light p-4 display-4"> PLANETS</h1>
+			</div>
+			
+			<div className="d-flex overflow">
+			{
+				store.planets?.map((obj, i)=>{
+				return <div key={i}> <Box
+					Key={i}
+					name={obj.name}
+					info= {<ul>
+						<li><strong>Terrain: </strong>{obj.terrain}</li>
+						<li><strong>Gravity: </strong>{obj.gravity}</li>
+					</ul>}
+					source= {'https://starwars-visualguide.com/assets/img/planets/'+(i+1)+'.jpg'}
+					i= {i}
+					layout= {'/planets/'}
+				/>
+				</div>
+				})
+			}
+			</div>
+		</div>
+	</div>
 };
+
+
