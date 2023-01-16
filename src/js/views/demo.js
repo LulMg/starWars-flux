@@ -50,7 +50,7 @@ return	<div className="container">
 						<li><strong>Terrain: </strong>{obj.terrain}</li>
 						<li><strong>Gravity: </strong>{obj.gravity}</li>
 					</ul>}
-					source= {'https://starwars-visualguide.com/assets/img/planets/'+(i+1)+'.jpg'}
+					source= {'https://starwars-visualguide.com/assets/img/planets/'+(i+2)+'.jpg'}
 					i= {i}
 					layout= {'/planets/'}
 				/>
